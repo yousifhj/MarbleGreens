@@ -1,0 +1,3 @@
+class GreenhousesController < ApplicationController
+
+end 
