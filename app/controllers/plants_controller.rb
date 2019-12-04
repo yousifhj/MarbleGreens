@@ -26,4 +26,13 @@ class PlantsController < ApplicationController
         
     end 
 
+    get '/plants/:id' do 
+        @plant = Plant.find_by(id: params[:id])
+        if @plant 
+            erb :'plants/show'
+        else 
+            redirect "/plants"
+        end 
+    end 
+
 end
