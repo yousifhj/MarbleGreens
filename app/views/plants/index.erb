@@ -2,6 +2,12 @@
 
 <% @plants.each do |p|%>
 <br>
-<li><strong><%= p.greenhouse.name %></strong></li>
+<li><strong><%= p.greenhouse.name %></strong> | Water: <%= p.water %> | Light: <%= p.light %> | Price: <%= p.price %>  </li>
 
 <% end %>
+
+<br>
+<br>
+
+<p> <a href="/plants/new"> Add New Plant</p>
+<p> <a href="/plants/new"> Add New Plant</p>
