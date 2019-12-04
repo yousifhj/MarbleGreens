@@ -1,8 +1,8 @@
-<h2>My Plants</h2> 
+<h2>My Plant List</h2> 
 
 <% @plants.each do |p|%>
 <br>
-<li><strong><%= p.greenhouse.name %></strong> | Water: <%= p.water %> | Light: <%= p.light %> | Price: <%= p.price %>  </li>
+<li><strong><a href="/greenhouse/<%p.id%>"><%= p.greenhouse.name%></a></strong> | Water: <%= p.water %> | Light: <%= p.light %> | Price: <%= p.price %>  </li>
 
 <% end %>
 
