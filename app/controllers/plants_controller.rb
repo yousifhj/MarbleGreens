@@ -27,7 +27,7 @@ class PlantsController < ApplicationController
     end 
 
     get '/plants/:id' do 
-        @plant = Plant.find_by(id: params[:id])
+        @plant = Plant.find_by(params[:id])
         if @plant 
             erb :'plants/show'
         else 
