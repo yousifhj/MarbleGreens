@@ -10,8 +10,7 @@ class PlantsController < ApplicationController
     end 
 
     post '/plants' do 
-        @plant = Plant.new(water: params[:water], light: params[:light], price: params[:price])
-        
+        @plant = Plant.new(water: params[:name])
 
         if @plant.save
             redirect '/plants'
