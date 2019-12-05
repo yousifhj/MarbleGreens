@@ -1,7 +1,8 @@
 <h2>My Plant List:</h2> 
 
-    <% @plants.each do |plants| %>
-        <p><%= plants.name %></p>
+    <% @plants.each do |p|%>
+        <br>
+        <li><strong><a href="/plants/<%=p.id%>"><%= p.name%></a></strong></li>
     <% end %>
 
 <br>

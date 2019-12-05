@@ -4,6 +4,7 @@ class UsersController < ApplicationController
         erb :'/users/login'
     end 
 
+    
     get '/signup' do
         if !logged_in?
             erb :"users/signup"
@@ -13,13 +14,21 @@ class UsersController < ApplicationController
     end 
 
     post '/signup' do 
-        if params[:username] == "" && params[:password] == ""
-            redirect '/signup'
-        else 
-            @user = User.create(username: params[:username], password: params[:password])
-            sessions[:user_id] = @user.id
-            redirect "/plants"
-        end 
+
     end 
 
+
+    get '/logout' do
+        if logged_in? 
+            erb :'/user/logout'
+        else
+            redirect "/"
+        end
+    end
+
+    post '/logout' do
+        @current_user = nil
+        session.clear
+        redirect "/"
+    end
 end 
