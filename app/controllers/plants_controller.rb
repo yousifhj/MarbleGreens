@@ -27,12 +27,21 @@ class PlantsController < ApplicationController
     end 
 
     get '/plants/:id' do 
+        if logged_in?
         @plant = Plant.find_by(params[:id])
-        if @plant 
             erb :'plants/show'
         else 
-            redirect "/plants"
+            redirect "/login"
         end 
     end 
+
+    get '/plants/:id/edit' do 
+        @plant = Plant.find_by_id(params[:id])
+        if logged_on?
+            erb :"/plants/edit"
+        else
+            redirect "/login"
+        end 
+    end
 
 end

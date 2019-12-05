@@ -1,7 +1,9 @@
 <h2>Plants: </h2>
 
-<%=@plant.name %>
+<%=@plant.name each do |p|%>
 
 <h5>Water: <%= p.water %></h5>
 <h5>Light: <%= p.light %></h5> 
 <h5>Price: <%= p.price %></h5> 
+
+<% end %>

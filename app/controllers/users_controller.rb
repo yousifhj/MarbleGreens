@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
 
+    get '/login' do 
+        erb :'/users/login'
+    end 
+
     get '/signup' do
         if !logged_in?
             erb :"users/signup"
         else 
-            redirect "/plants"
+            redirect "/users/create_user"
         end 
     end 
 
@@ -17,5 +21,7 @@ class UsersController < ApplicationController
             redirect "/plants"
         end 
     end 
+
+    
 
 end 
