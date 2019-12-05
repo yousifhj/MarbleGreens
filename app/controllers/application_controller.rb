@@ -13,6 +13,10 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  get '/homepage' do 
+    erb :welcome
+  end 
+
   helpers do 
 
     def logged_in?
