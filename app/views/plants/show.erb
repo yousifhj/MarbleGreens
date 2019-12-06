@@ -1,8 +1,12 @@
 <h2>My Plant Details: </h2>
 
-    <% @plants.each do |plant| %>
-        <%= plant.name %>
-    <% end %>
 
 
+<h2><%=@plant.name%></h2><br>
+<h5><%=@plant.water%></h5><br>
+<h5><%=@plant.light%></h5><br>
+<h5><%=@plant.price%></h5><br>
+<br>
+<br>
 
+<a href="/plants/<%= @plant.id %>/edit"> <input type="submit" name="submit" value="Edit Plant"></a>
