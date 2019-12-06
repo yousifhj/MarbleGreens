@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-
-
     get '/signup' do
         if !logged_in?
             erb :"users/signup"
@@ -9,29 +7,38 @@ class UsersController < ApplicationController
             redirect "/plants"
         end 
     end 
-
-    post '/signup' do 
-        user = User.new(params)
-        if user.save
-            session["user_id"] = user.id
-            redirect "/plants"
+ 
+    post '/signup' do
+        @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+        if @user.save
+          session[:user_id] = @user.id
+          redirect '/plants'
         else
-            redirect "/signup"
+          erb :'/plants/index'
         end
-    end 
+    end
 
-    get '/login' do 
-        erb :'/users/login'
-    end 
+    get '/login' do
+        if !logged_in?
+          erb :'/users/login'
+        else
+          redirect '/plants/index'
+        end
+    end
 
     post '/login' do
-        @user = User.find_by(email: params[:user][:email])
-        if @user && @user.authenticate(params[:user][:password])
-            session['user_id'] = @user.id
-            redirect '/plants/index'
+        user = User.find_by(username: params[:username])
+        if user && user.authenticate(params[:password])
+          session[:user_id] = user.id
+          redirect '/plants'
         else
-            redirect '/login'
+          erb :'/users/login'
         end
+      end
+
+    get '/logout' do
+      session.clear
+      erb :'/index'
     end
 
 end 

@@ -1,8 +1,8 @@
 class PlantsController < ApplicationController
 
     get '/plants' do  #by convention, index route
-        @plants = Plant.all  #@passes to view 
-        erb :'plants/index' 
+        @plants = Plant.all #@passes to view 
+        erb :'plants/index'
     end 
 
     get '/plants/new' do 
@@ -10,9 +10,14 @@ class PlantsController < ApplicationController
     end 
 
     post '/plants' do 
-        @plant = Plant.new(water: params[:name])
-
-        if @plant.save
+        @plant = Plant.new(name: params[:plant],water: params[:water], light: params[:light], price: params[:price], greenhouse: params[:greenhouse])
+        @greenhouse = Greenhouse.find_by(name: [params[:greenhouse]])
+        if @greenhouse
+            @plant.greenhouse = @greenhouse
+        else 
+            @plant.build_greenhouse(name: params[:greenhouse])
+        end 
+        if plant.save
             redirect '/plants'
         else 
             redirect '/plants/new'
@@ -25,7 +30,7 @@ class PlantsController < ApplicationController
         @plant = Plant.find_by(params[:id])
             erb :'plants/show'
         else 
-            redirect "/login"
+            redirect "/plants"
         end 
     end 
 

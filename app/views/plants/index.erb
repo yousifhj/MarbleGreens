@@ -1,13 +1,16 @@
 <h2>My Plant List:</h2> 
 
-    <% @plants.each do |p|%>
-        <br>
-        <li><strong><a href="/plants/<%=p.id%>"><%= p.name%></a></strong></li>
+
+
+<ul>
+
+    <% @plants.each do |plant| %>
+        <li><a href="/plants/<%= plant.id %>" style="color: #ffffff"><%= plant.name %></a></li>
     <% end %>
 
 <br>
 <br>
 
-<p> <a href="/plants/new"> Add A New Plant</a></p>
-<p> <a href="/greenhouses"> Greenhouse List</a></p>
-<p> <a href="/homepage"> Home Page </a></p>
+<button type="button" class="btn btn-default"><a href="/plants/new">Add A new Plant</a></button>
+<button type="button" class="btn btn-default"><a href="/greenhouses">Greenhouse List</a></button>
+<button type="button" class="btn btn-default"><a href="/homepage">Home Page</a></button>
