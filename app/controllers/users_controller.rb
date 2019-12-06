@@ -19,12 +19,10 @@ class UsersController < ApplicationController
     end
 
     get '/login' do
-        if logged_in?
-            @user = current_user
-            @plants = @user.plant
-            erb :'[plants/index'
+        if !logged_in?
+             erb :'/users/login'
         else
-          redirect '/login'
+            redirect '/plants/index'
         end
     end
 
