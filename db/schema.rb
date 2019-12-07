@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20191204230806) do
     t.integer "price"
     t.string  "water"
     t.string  "light"
+    t.integer "user_id"
     t.integer "greenhouse_id"
   end
 

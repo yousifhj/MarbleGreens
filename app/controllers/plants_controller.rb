@@ -10,31 +10,47 @@ class PlantsController < ApplicationController
     end 
 
     post '/plants' do 
-        plant = current_user.plants.build(name: params[:plant],water: params[:water], light: params[:light], price: params[:price], greenhouse: params[:greenhouse],user_id: current_user.id)
-        if  params[:name].empty? || params[:water].empty? ||params[:light].empty? || params[:price].empty? || params[:greenhouse].empty?
-            redirect '/plants/new'   
-        else plant.save
-            redirect '/plants'
-        end 
-        
+       # binding.pry
+       if  params[:name].empty? || params[:water].empty? ||params[:light].empty? || params[:price].empty? || params[:greenhouse_name].empty?
+            redirect '/plants/new'        
+       end
+        greenhouse = Greenhouse.create(name: params[:greenhouse_name])
+        plant = current_user.plants.build(name: params[:name],water: params[:water], light: params[:light], price: params[:price], greenhouse_id: greenhouse.id)
+        if plant.save
+            redirect '/plants'             
+        else
+            redirect '/plants/new'  
+        end         
     end 
 
     get '/plants/:id' do 
         if logged_in?
-        @plant = current_user.plants.find_by(params[:id])
+        @plant = current_user.plants.find_by_id(params[:id])
             erb :'plants/show'
         else 
             redirect "/login"
         end 
     end 
 
+
     get '/plants/:id/edit' do 
-        @plants = current_user.plants.find_by_id(params[:id])
         if current_user
+            @plants = current_user.plants.find_by(id: params[:id])
             erb :"/plants/edit"
         else
             redirect "/login"
         end 
     end
+
+    patch '/plants/:id' do 
+        @user = current_user
+        @plants = @user.plants.find_by(id: params[:id])
+        if !@user
+            redirect '/login'
+        else
+            @plants.update(name: params[:plant],water: params[:water], light: params[:light], price: params[:price], greenhouse: params[:greenhouse],user_id: current_user.id)
+            redirect "/plants/#{@plants.id}"
+        end
+    end 
 
 end
