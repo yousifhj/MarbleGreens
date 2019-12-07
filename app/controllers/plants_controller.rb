@@ -36,7 +36,7 @@ class PlantsController < ApplicationController
     get '/plants/:id/edit' do 
         if current_user
             @plants = current_user.plants.find_by(id: params[:id])
-            erb :"/plants/edit"
+            erb :"plants/edit"
         else
             redirect "/login"
         end 
@@ -48,7 +48,7 @@ class PlantsController < ApplicationController
         if !@user
             redirect '/login'
         else
-            @plants.update(name: params[:plant],water: params[:water], light: params[:light], price: params[:price], greenhouse: params[:greenhouse],user_id: current_user.id)
+            @plants.update(name: params[:name],water: params[:water], light: params[:light], price: params[:price], greenhouse_id: greenhouse.id)
             redirect "/plants/#{@plants.id}"
         end
     end 
