@@ -1,12 +1,11 @@
 <h2> My Plant List:</h2> 
 
-<ul>
 
-<% @plants.each do |plant| %>
-    <p><a href="/plants/<%= plant.id %>"><%= plant.name %></a></p>
+<% @plants.each do |p| %>
+    <p><a href="/plants/<%= p.id %>"><%= p.name %></a></p>
 <% end %>
 
-</ul>
+
 
 <br>
 <br>

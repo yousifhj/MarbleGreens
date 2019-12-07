@@ -3,7 +3,8 @@ class PlantsController < ApplicationController
     get '/plants' do  #by convention, index route
         if logged_in?
             user = current_user
-            @plant = user.plants.find_by(id: params[:id])
+            @plants = user.plants
+            # binding.pry
             erb :'plants/index' 
         else 
             redirect "/login"
@@ -21,7 +22,7 @@ class PlantsController < ApplicationController
             redirect '/plants/new'        
        end
         greenhouse = Greenhouse.create(name: params[:greenhouse_name])
-        plant = current_user.plants.build(name: params[:name],water: params[:water], light: params[:light], price: params[:price], greenhouse_id: greenhouse.id)
+        plant = current_user.plants.build(name: params[:name],water: params[:water], light: params[:light], price: params[:price], greenhouse_id: greenhouse.id, user_id: current_user.id)
         if plant.save
             redirect '/plants'             
         else
