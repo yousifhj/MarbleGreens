@@ -53,4 +53,12 @@ class PlantsController < ApplicationController
         end
     end 
 
+    delete '/plants/:id' do 
+        if !logged_in?
+            redirect '/'
+        else @plant = current_user.plants.find_by(id: params[:id])
+            @plant.destroy
+            redirect '/plants'
+        end 
+    end 
 end
