@@ -10,18 +10,11 @@ class PlantsController < ApplicationController
     end 
 
     post '/plants' do 
-        plant = current_user.plant.build(user_id: current_user.id, name: params[:plant],water: params[:water], light: params[:light], price: params[:price], greenhouse: params[:greenhouse])
-        @greenhouse = Greenhouse.find_by(name: [params[:greenhouse]])
-        
-        if @greenhouse
-           @plant.greenhouse = @greenhouse
-        else 
-            @plant.build_greenhouse(name: params[:greenhouse])
-        end 
-        if plant.save
+        plant = current_user.plants.build(name: params[:plant],water: params[:water], light: params[:light], price: params[:price], greenhouse: params[:greenhouse],user_id: current_user.id)
+        if  params[:name].empty? || params[:water].empty? ||params[:light].empty? || params[:price].empty? || params[:greenhouse].empty?
+            redirect '/plants/new'   
+        else plant.save
             redirect '/plants'
-        else 
-            redirect '/plants/new'
         end 
         
     end 
