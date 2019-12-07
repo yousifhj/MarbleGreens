@@ -20,11 +20,7 @@ class UsersController < ApplicationController
     end
 
     get '/login' do
-        if !logged_in?
-             erb :'/users/login'
-        else
-            redirect '/plants/index'
-        end
+        erb :'/users/login'
     end
 
     post '/login' do

@@ -1,8 +1,14 @@
 class PlantsController < ApplicationController
 
     get '/plants' do  #by convention, index route
-         @plants = Plant.all  #@passes to view 
-        erb :'plants/index' 
+        if logged_in?
+            user = current_user
+            @plant = user.plants.find_by(id: params[:id])
+            erb :'plants/index' 
+        else 
+            redirect "/login"
+        end 
+
     end 
 
     get '/plants/new' do 
@@ -11,7 +17,7 @@ class PlantsController < ApplicationController
 
     post '/plants' do 
        # binding.pry
-       if  params[:name].empty? || params[:water].empty? ||params[:light].empty? || params[:price].empty? || params[:greenhouse_name].empty?
+       if  params[:name].empty? || params[:water].empty? || params[:light].empty? || params[:price].empty? || params[:greenhouse_name].empty?
             redirect '/plants/new'        
        end
         greenhouse = Greenhouse.create(name: params[:greenhouse_name])
@@ -25,8 +31,13 @@ class PlantsController < ApplicationController
 
     get '/plants/:id' do 
         if logged_in?
-        @plant = current_user.plants.find_by_id(params[:id])
-            erb :'plants/show'
+            user = current_user
+            @plant = user.plants.find_by(id: params[:id])
+            if @plant 
+                erb :'plants/show'
+            else  
+                redirect '/plants'
+            end 
         else 
             redirect "/login"
         end 

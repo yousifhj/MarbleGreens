@@ -1,10 +1,11 @@
 <h2>My Plant Details: </h2>
 
-<p>Plant Name: <%=@plant.name%></p>
-<p>Water: <%=@plant.water%></p>
-<p>Lght: <%=@plant.light%></p>
-<p>Price: <%=@plant.price%></p>
-<p>Grown at: <%=@plant.greenhouse.id%></p>
+
+<p>Plant Name: <%= @plant.name%></p>
+<p>Water: <%= @plant.water%></p>
+<p>Lght: <%= @plant.light%></p>
+<p>Price: <%= @plant.price%></p>
+<p>Grown at: <%= @plant.greenhouse.id%></p>
 
 <a href="/plants/<%= @plant.id %>/edit"> <input type="submit" name="submit" value="Edit Plant"></a>
 
@@ -15,5 +16,4 @@
 </form>
 
 <a href="/plants"><input type="submit" value="Return to Plants"></a>
-
 
