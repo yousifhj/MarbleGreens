@@ -1,16 +1,33 @@
-<h1>Edit Plant</h1>
-    
-<form action="/plants/<%= @plant.id%>" method="POST">
-    <input type="hidden" id="hidden" name="_method" value="PATCH">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Edit Plant</title>
+    </head>
+    <style>
+      body {
+      font-family: Palatino;
+      }  
+    </style>
 
-    <h3>Name: <input type="text" name="name" value= "<%= @plant.name %>"></h3>
-    <h3>Water: <input type="text" name="water" value= "<%= @plant.water %>"></h3>
-    <h3>Light: <input type="text" name="light" value= "<%= @plant.light %>"></h3>
-    <h3>Price: <input type="integer" name="price" value= "<%= @plant.price %>"></h3>
-   <h3>Notes: <input type="text" name="notes" value= "<%= @plant.notes %>"></h3>
+   <body> <h2>Edit <%= @plant.name %></h2>
     
-    <br>
-    <br>
+        <form action="/plants/<%= @plant.id%>" method="POST">
+            <input type="hidden" id="hidden" name="_method" value="PATCH">
 
-    <input type="submit" name="submit" value="Update Plant">
-</form>
+            <h4>Name: <input type="text" name="name" value= "<%= @plant.name %>"></h4>
+            <br>
+            <h4>Water: <input type="text" name="water" value= "<%= @plant.water %>"></h4>
+            <br>
+            <h4>Light: <input type="text" name="light" value= "<%= @plant.light %>"></h4>
+            <br>
+            <h4>Price: <input type="integer" name="price" value= "<%= @plant.price %>"></h4>
+            <br>
+            <h4>Notes: <input type="text" name="notes" value= "<%= @plant.notes %>"></h4>
+            
+            <br>
+            <br>
+
+            <input type="submit" name="submit" value="Update Plant">
+        </form>
+   </body>
+</html>

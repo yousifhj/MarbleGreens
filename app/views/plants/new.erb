@@ -1,44 +1,58 @@
-<h2> Add a Plant: </h2>
+<!DOCTYPE html>
+<html>
+  <head>
+      <title> Add A Plant</title>
+  </head>
+  <style>
+    body {
+    font-family: Palatino;
+    }  
+  </style>
 
-<form method="POST" action="/plants">
+  <body>
+    <h2> Add a Plant: </h2>
 
-    <label for="name">Name:</label>
-    <input type="text" name="name">
+    <form method="POST" action="/plants">
 
-    <br>
-    <br>
+        <label for="name">Name:</label>
+        <input type="text" name="name">
 
-    <label for="Water">Water:</label>
-    <input type="text" name="water">
+        <br>
+        <br>
 
-    <br>
-    <br>
+        <label for="Water">Water:</label>
+        <input type="text" name="water">
 
-    <label for="light">Light:</label>
-    <input type="text" name="light">
+        <br>
+        <br>
 
-    <br>
-    <br>
+        <label for="light">Light:</label>
+        <input type="text" name="light">
 
-    <label for="price">Price:</label>
-    <input type="integer" name="price">
+        <br>
+        <br>
 
-    <br>
-    <br>
+        <label for="price">Price:</label>
+        <input type="integer" name="price">
 
-    <label for="notes">Notes</label>  <br>  
-    <textarea type="text" name="notes"></textarea><br>
-   
+        <br>
+        <br>
 
-    <br>
-    <br>
+        <label for="notes">Notes</label>  <br>  
+        <textarea type="text" name="notes"></textarea><br>
+      
 
-    <input type="submit">
+        <br>
+        <br>
 
-    <br>
-    <br>
+        <input type="submit">
 
-  <p> <a href="/plants"> Plants </a></p>
+        <br>
+        <br>
 
-</form>
+      <p> <a href="/plants"> Plants </a></p>
+
+    </form>
+  </body>
+  </html>
 

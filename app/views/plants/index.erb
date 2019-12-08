@@ -1,14 +1,25 @@
-<h2> My Plant List:</h2> 
+<!DOCTYPE html>
+<html>
+  <head>
+      <title> Add A Plant</title>
+  </head>
+  <style>
+    body {
+    font-family: Palatino;
+    }  
+  </style>
+
+  <body>
+    <h2> My Plant List:</h2> 
 
 
-<% @plants.each do |p| %>
-    <p><a href="/plants/<%= p.id %>"><%= p.name %></a></p>
-<% end %>
+    <% @plants.each do |p| %>
+        <p><a href="/plants/<%= p.id %>"><%= p.name %></a></p>
+    <% end %>
+    <br>
+    <br>
 
-
-
-<br>
-<br>
-
-<button type="button" class="btn btn-default"><a href="/plants/new">Add A new Plant</a></button>
-<button type="button" class="btn btn-default"><a href="/logout">Log out</a></button>
+    <button type="button" class="btn btn-default"><a href="/plants/new">Add A new Plant</a></button>
+    <button type="button" class="btn btn-default"><a href="/logout">Log out</a></button>
+    </body>
+<html>

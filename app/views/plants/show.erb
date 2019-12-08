@@ -1,22 +1,35 @@
-<h2>My Plant Details: </h2>
+<!DOCTYPE html>
+<html>
+  <head>
+      <title> Add A Plant</title>
+  </head>
+  <style>
+    body {
+    font-family: Palatino;
+    }  
+  </style>
+
+  <body>
+    <h2>My Plant Details: </h2>
 
 
-<p>Plant Name: <%= @plant.name%></p>
-<p>Water: <%= @plant.water%></p>
-<p>Lght: <%= @plant.light%></p>
-<p>Price: <%= @plant.price%></p>
-<p>Notes: <%= @plant.notes%></p>
+    <p>Plant Name: <%= @plant.name%></p>
+    <p>Water: <%= @plant.water%></p>
+    <p>Lght: <%= @plant.light%></p>
+    <p>Price: <%= @plant.price%></p>
+    <p>Notes: <%= @plant.notes%></p>
 
 
-<br>
-<br>
+    <br>
+    <br>
 
-<a href="/plants/<%= @plant.id %>/edit"> <input type="submit" name="submit" value="Edit Plant"></a>
+    <a href="/plants/<%= @plant.id %>/edit"> <input type="submit" name="submit" value="Edit Plant"></a>
 
-<form method="POST" action="/plants/<%= @plant.id %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Plant">
-</form>
+    <form method="POST" action="/plants/<%= @plant.id %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete Plant">
+    </form>
 
-<a href="/plants"><input type="submit" value="Return to Plants"></a>
-
+    <a href="/plants"><input type="submit" value="Return to Plants"></a>
+  </body>
+</html>
