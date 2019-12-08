@@ -60,7 +60,7 @@ class PlantsController < ApplicationController
         if !@user
             redirect '/login'
         else
-            @plants.update(name: params[:name],water: params[:water], light: params[:light], price: params[:price], greenhouse_id: greenhouse.id)
+            @plants.update(name: params[:name],water: params[:water], light: params[:light], price: params[:price])
             redirect "/plants/#{@plants.id}"
         end
     end 

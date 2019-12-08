@@ -5,15 +5,13 @@
 <p>Water: <%= @plant.water%></p>
 <p>Lght: <%= @plant.light%></p>
 <p>Price: <%= @plant.price%></p>
-<%# <p> Grown at: <%= plant.greenhouse.id%></p> 
+<p> Grown at: <%= @plant.greenhouse.name%></p> 
 
 
 <br>
 <br>
-
 
 <a href="/plants/<%= @plant.id %>/edit"> <input type="submit" name="submit" value="Edit Plant"></a>
-
 
 <form method="POST" action="/plants/<%= @plant.id %>">
   <input type="hidden" name="_method" value="DELETE">

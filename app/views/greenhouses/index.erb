@@ -3,10 +3,9 @@
 <br>
 
     <% @greenhouses.each do |g| %>
-        <%# <p><strong>ID:<%= g.id %></strong></p> 
         <p><strong><%= g.name %></strong></p>
     <% end %>
 
-<p> <a href="/plants"> Plants </a></p>
-<p> <a href="/homepage"> Home Page </a></p>
- <p> <a href="/">  </a></p>
+
+<button type="button" class="btn btn-default"><a href="/plants">Plants</a></button>
+<button type="button" class="btn btn-default"><a href="/logout">Log out</a></button>

@@ -1,12 +1,14 @@
 <h1>Edit Plant</h1>
     
-<form action="/plants/<%= @plants.id%>" method="POST">
+<form action="/plants/<%= @plant.id%>" method="POST">
     <input type="hidden" id="hidden" name="_method" value="PATCH">
 
     <h3>Name: <input type="text" name="name" value= "<%= @plant.name %>"></h3>
     <h3>Water: <input type="text" name="water" value= "<%= @plant.water %>"></h3>
     <h3>Light: <input type="text" name="light" value= "<%= @plant.light %>"></h3>
     <h3>Price: <input type="integer" name="price" value= "<%= @plant.price %>"></h3>
+
+    <br>
         
     <label for="greenhouse">Grown at:</label>
         <select id="greenhouse" name="greenhouse">
@@ -16,5 +18,8 @@
         </select>
     </label>
     
+    <br>
+    <br>
+
     <input type="submit" name="submit" value="Update Habit">
 </form>
