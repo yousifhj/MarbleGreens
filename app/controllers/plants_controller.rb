@@ -18,7 +18,7 @@ class PlantsController < ApplicationController
 
     post '/plants' do 
        # binding.pry
-       if  params[:name].empty? || params[:water].empty? || params[:light].empty? || params[:price].empty? || params[:greenhouse_name].empty?
+       if  params[:name] == "" || params[:water] == ""  || params[:light] == "" || params[:price] == ""  || params[:greenhouse_name] == "" 
             redirect '/plants/new'        
        end
         greenhouse = Greenhouse.create(name: params[:greenhouse_name])
@@ -47,7 +47,7 @@ class PlantsController < ApplicationController
 
     get '/plants/:id/edit' do 
         if current_user
-            @plants = current_user.plants.find_by(id: params[:id])
+            @plant = current_user.plants.find_by(id: params[:id])
             erb :"plants/edit"
         else
             redirect "/login"
