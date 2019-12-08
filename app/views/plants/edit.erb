@@ -4,10 +4,17 @@
     <input type="hidden" id="hidden" name="_method" value="PATCH">
 
     <h3>Name: <input type="text" name="name" value= "<%= @plant.name %>"></h3>
-    <h3>Water: <input type="text" name="water" value= "<%= @hplant.water %>"></h3>
+    <h3>Water: <input type="text" name="water" value= "<%= @plant.water %>"></h3>
     <h3>Light: <input type="text" name="light" value= "<%= @plant.light %>"></h3>
     <h3>Price: <input type="integer" name="price" value= "<%= @plant.price %>"></h3>
-    <h3>Grown at: <input type="integer" name="greenhouse_id" value= "<%= @plant.greenhouse_id %>"></h3>
+        
+    <label for="greenhouse">Grown at:</label>
+        <select id="greenhouse" name="greenhouse">
+            <option value="planternia"> Planternia</option>
+            <option value="dans_nursery"> Dan's Nursery</option>
+            <option value="balboa_park">Balboa Park</option>
+        </select>
+    </label>
     
     <input type="submit" name="submit" value="Update Habit">
 </form>
