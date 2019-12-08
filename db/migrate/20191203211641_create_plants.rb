@@ -5,8 +5,8 @@ class CreatePlants < ActiveRecord::Migration
       t.integer :price
       t.string :water
       t.string :light 
+      t.string :notes
       t.integer :user_id
-      t.integer :greenhouse_id #forign_key, plant belongs to greenhouse 
     end 
   end
 end

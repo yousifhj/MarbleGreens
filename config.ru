@@ -6,7 +6,6 @@ end
 
 use Rack::MethodOverride
 use PlantsController
-use GreenhousesController 
 use UsersController
 run ApplicationController
 

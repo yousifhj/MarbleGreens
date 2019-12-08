@@ -18,11 +18,10 @@ class PlantsController < ApplicationController
 
     post '/plants' do 
        # binding.pry
-       if  params[:name] == "" || params[:water] == ""  || params[:light] == "" || params[:price] == ""  || params[:greenhouse_name] == "" 
+       if  params[:name] == "" || params[:water] == ""  || params[:light] == "" || params[:price] == ""  || params[:notes] == "" 
             redirect '/plants/new'        
        end
-        greenhouse = Greenhouse.create(name: params[:greenhouse_name])
-        plant = current_user.plants.build(name: params[:name],water: params[:water], light: params[:light], price: params[:price], greenhouse_id: greenhouse.id, user_id: current_user.id)
+        plant = current_user.plants.build(name: params[:name],water: params[:water], light: params[:light], price: params[:price], notes: params[:notes], user_id: current_user.id)
         if plant.save
             redirect '/plants'             
         else
@@ -60,7 +59,7 @@ class PlantsController < ApplicationController
         if !@user
             redirect '/login'
         else
-            @plants.update(name: params[:name],water: params[:water], light: params[:light], price: params[:price])
+            @plants.update(name: params[:name],water: params[:water], light: params[:light], price: params[:price], notes: params[:notes])
             redirect "/plants/#{@plants.id}"
         end
     end 
