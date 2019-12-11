@@ -13,10 +13,6 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-  get '/homepage' do 
-    erb :welcome
-  end 
-
   helpers do 
 
     def logged_in?
@@ -24,7 +20,7 @@ class ApplicationController < Sinatra::Base
     end 
 
     def current_user 
-      @user ||= User.find_by(id: session[:user_id])
+      @user ||= User.find_by(id: session[:user_id]) #return or set 
     end 
 
   end 
