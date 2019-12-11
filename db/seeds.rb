@@ -1,6 +1,6 @@
 #seed data to work with 
 
-#create 2 users
+#create and save 2 users
 sam = User.create(username: "Sam", email: "samsmith@gmail.com", password: "password")
 sherry= User.create(name: "Carol", email: "carol@gmail.com", password: "password")
 

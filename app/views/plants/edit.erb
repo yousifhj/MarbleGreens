@@ -12,7 +12,7 @@
    <body> <h2>Edit <%= @plant.name %></h2>
     
         <form action="/plants/<%= @plant.id%>" method="POST">
-            <input type="hidden" id="hidden" name="_method" value="PATCH">
+            <input type="hidden" id="hidden" name="_method" value="PATCH"> 
 
             <h4>Name: <input type="text" name="name" value= "<%= @plant.name %>"></h4>
             <br>
